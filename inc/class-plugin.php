@@ -173,7 +173,7 @@ class Plugin {
 				if ( $use_markdown ) {
 					$content = $this->htmlConverter->convert( wpautop( $post->post_content ) ); // HTML To Markdown
 				} else {
-					$content = $this->parsedown->parse( $post->post_content ); // Markdown To HTML
+					$content = $this->parsedown->text( $post->post_content ); // Markdown To HTML
 				}
 				wp_update_post(
 					[
@@ -246,7 +246,7 @@ class Plugin {
 		// Preview
 		if ( is_preview() ) {
 			if ( $use_markdown ) {
-				return $this->parsedown->parse( $content );
+				return $this->parsedown->text( $content );
 			} else {
 				// This preview is not markdown, return unchanged
 				return $content;
@@ -260,7 +260,7 @@ class Plugin {
 			if ( $post_id && $cached_content ) {
 				return $cached_content;
 			} else {
-				$content = $this->parsedown->parse( $content );
+				$content = $this->parsedown->text( $content );
 				set_transient( $transient, $content );
 				return $content;
 			}

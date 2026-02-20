@@ -1,6 +1,6 @@
 # Parsedown Party 
 
-**Contributors:** conner_bw, greatislander, steelwagstaff 
+**Contributors:** conner_bw, greatislander, steelwagstaff
 **Tags:** markdown, parsedown  
 **Requires at least:** 6.8  
 **Tested up to:** 6.9.1  
