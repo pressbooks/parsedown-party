@@ -1,0 +1,56 @@
+{
+  "name": "pressbooks/parsedown-party",
+  "description": "Markdown editing for WordPress.",
+  "keywords": [
+    "markdown",
+    "parsedown",
+    "wordpress"
+  ],
+  "homepage": "https://github.com/pressbooks/parsedown-party/",
+  "license": "GPL-2.0+",
+  "type": "wordpress-plugin",
+  "authors": [
+    {
+      "name": "KIZU514",
+      "homepage": "https://kizu514.com"
+    },
+    {
+      "name": "Steel Wagstaff",
+      "homepage": "https://github.com/steelwagstaff"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/connerbw/parsedown-party/issues/",
+    "source": "https://github.com/connerbw/parsedown-party/"
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  },
+  "require": {
+    "php": ">=8.3",
+    "composer/installers": "^2.1",
+    "erusev/parsedown-extra": "^0.8.1",
+    "league/html-to-markdown": "^4.9"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5",
+    "wpreadme2markdown/wp2md": "^3.0",
+    "pressbooks/coding-standards": "^1.0",
+    "yoast/phpunit-polyfills": "^1.1"
+  },
+  "scripts": {
+    "test": [
+      "vendor/bin/phpunit --configuration phpunit.xml --coverage-clover coverage.xml",
+      "@standards"
+    ],
+    "standards": [
+      "vendor/bin/phpcs"
+    ],
+   	"fix": [
+			"vendor/bin/phpcbf"
+		]
+  }
+}
