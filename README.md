@@ -19,6 +19,17 @@ This plugin lets you use [Markdown](https://github.com/erusev/parsedown) for ind
 Works on posts using the [Classic Editor](https://en-ca.wordpress.org/plugins/classic-editor/). Gutenberg is currently not supported.
 
 
+## Testing
+
+The `test-sample.md` file includes comprehensive examples of various Markdown and Parsedown Extra features for testing purposes. To test the Markdown functionality locally:
+
+1. Create or edit a page using the Classic Editor
+2. Enable Markdown using the toggle in the Publish box (sidebar)
+3. Paste the contents of [`test-sample.md`](test-sample.md) into the post editor
+4. Click "Preview" to view the rendered output
+5. Confirm that all Markdown features are properly parsed (headers, lists, code blocks, tables, etc.)
+
+
 ## Screenshots 
 
 ### 1. Parsedown Party in the post editor.
