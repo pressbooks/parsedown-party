@@ -114,7 +114,7 @@ class Plugin {
 		}
 		$use_markdown = $this->useMarkdownForPost( $post );
 		wp_nonce_field( $post->ID, self::NONCE );
-		echo '<input type="hidden" value="' . (int) $use_markdown . '" name="' . self::METAKEY . '"  id="' . self::METAKEY . '" />';
+		echo '<input type="hidden" value="' . (int) $use_markdown . '" name="' . esc_attr( self::METAKEY ) . '"  id="' . esc_attr( self::METAKEY ) . '" />';
 		if ( $use_markdown ) {
 			?>
 			<div class="misc-pub-section">
