@@ -1,6 +1,6 @@
 <?php
 
-namespace ParsedownParty\Tests;
+namespace Tests;
 
 use ParsedownParty\Plugin;
 
@@ -16,7 +16,7 @@ class PluginTest extends \WP_UnitTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        
+
         // Initialize the plugin
         $this->plugin = Plugin::init();
     }
@@ -54,10 +54,10 @@ class PluginTest extends \WP_UnitTestCase
         ]);
 
         update_post_meta($post_id, Plugin::METAKEY, 1);
-        
+
         $post = get_post($post_id);
         $result = $this->plugin->useMarkdownForPost($post);
-        
+
         $this->assertTrue($result);
     }
 
@@ -69,15 +69,15 @@ class PluginTest extends \WP_UnitTestCase
         ]);
 
         update_post_meta($post_id, Plugin::METAKEY, 1);
-        
+
         global $post;
         $post = get_post($post_id);
         setup_postdata($post);
-        
+
         $content = $this->plugin->parseTheContent('# Test Header');
-        
+
         $this->assertStringContainsString('<h1>Test Header</h1>', $content);
-        
+
         wp_reset_postdata();
     }
 
@@ -91,7 +91,7 @@ class PluginTest extends \WP_UnitTestCase
 
         $html = '<h1>Test Header</h1>';
         $markdown = $converter->convert($html);
-        
+
         $this->assertStringContainsString('# Test Header', $markdown);
     }
 
@@ -103,11 +103,11 @@ class PluginTest extends \WP_UnitTestCase
         ]);
 
         update_post_meta($post_id, Plugin::METAKEY, 1);
-        
+
         global $post, $pagenow;
         $post = get_post($post_id);
         $pagenow = 'post.php';
-        
+
         $settings = [
             'wpautop' => true,
             'media_buttons' => true,
@@ -116,12 +116,12 @@ class PluginTest extends \WP_UnitTestCase
         ];
 
         $modified = $this->plugin->parseEditorSettings($settings);
-        
+
         $this->assertFalse($modified['wpautop']);
         $this->assertFalse($modified['media_buttons']);
         $this->assertFalse($modified['tinymce']);
         $this->assertFalse($modified['quicktags']);
-        
+
         wp_reset_postdata();
     }
 
@@ -133,11 +133,11 @@ class PluginTest extends \WP_UnitTestCase
         ]);
 
         update_post_meta($post_id, Plugin::METAKEY, 0);
-        
+
         global $post, $pagenow;
         $post = get_post($post_id);
         $pagenow = 'post.php';
-        
+
         $settings = [
             'wpautop' => true,
             'media_buttons' => true,
@@ -146,12 +146,12 @@ class PluginTest extends \WP_UnitTestCase
         ];
 
         $modified = $this->plugin->parseEditorSettings($settings);
-        
+
         $this->assertTrue($modified['wpautop']);
         $this->assertTrue($modified['media_buttons']);
         $this->assertTrue($modified['tinymce']);
         $this->assertTrue($modified['quicktags']);
-        
+
         wp_reset_postdata();
     }
 }
