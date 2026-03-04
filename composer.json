@@ -7,7 +7,7 @@
     "wordpress"
   ],
   "homepage": "https://github.com/pressbooks/parsedown-party/",
-  "license": "GPL-2.0+",
+  "license": "GPL-3.0-or-later",
   "type": "wordpress-plugin",
   "authors": [
     {
@@ -20,14 +20,14 @@
     }
   ],
   "support": {
-    "issues": "https://github.com/connerbw/parsedown-party/issues/",
-    "source": "https://github.com/connerbw/parsedown-party/"
+    "issues": "https://github.com/pressbooks/parsedown-party/issues/",
+    "source": "https://github.com/pressbooks/parsedown-party/"
   },
   "config": {
     "allow-plugins": {
-      "composer/installers": true,
-      "dealerdirect/phpcodesniffer-composer-installer": true
-    }
+      "composer/installers": true
+    },
+    "sort-packages": true
   },
   "require": {
     "php": ">=8.3",
@@ -36,24 +36,32 @@
     "league/html-to-markdown": "^5.1"
   },
   "require-dev": {
-    "phpunit/phpunit": "^9.5",
-    "wpreadme2markdown/wp2md": "^3.0",
-    "pressbooks/coding-standards": "^1.0",
+    "laravel/pint": "^1.10.6",
+    "mockery/mockery": "^1.6",
     "yoast/phpunit-polyfills": "^1.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "ParsedownParty\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
   },
   "scripts": {
     "test": [
-      "vendor/bin/phpunit",
-      "@standards"
+      "vendor/bin/phpunit --configuration phpunit.xml"
     ],
     "test-coverage": [
-      "vendor/bin/phpunit --coverage-clover coverage.xml"
+      "vendor/bin/phpunit --configuration phpunit.xml --coverage-clover coverage.xml"
+    ],
+    "fix": [
+      "vendor/bin/pint"
     ],
     "standards": [
-      "vendor/bin/phpcs"
-    ],
-   	"fix": [
-			"vendor/bin/phpcbf"
-		]
+      "vendor/bin/pint --test"
+    ]
   }
 }

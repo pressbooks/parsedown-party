@@ -1,39 +1,13 @@
 <?php
 
-/**
- * PHPUnit bootstrap file for Parsedown Party
- */
+require_once dirname(__DIR__) . '/vendor/autoload.php';
 
-// Composer
-if (! file_exists(__DIR__ . '/../vendor/autoload.php')) {
-    die('Composer autoload file not found.');
-}
-require_once __DIR__ . '/../vendor/autoload.php';
+$tests_dir = getenv('WP_TESTS_DIR') ?: '/tmp/wordpress-tests-lib';
 
-$_tests_dir = getenv('WP_TESTS_DIR');
+require_once "{$tests_dir}/includes/functions.php";
 
-if (! $_tests_dir) {
-    $_tests_dir = rtrim(sys_get_temp_dir(), '/\\') . '/wordpress-tests-lib';
-}
+tests_add_filter('muplugins_loaded', function () {
+    require_once dirname(__DIR__) . '/parsedown-party.php';
+});
 
-if (! file_exists("{$_tests_dir}/includes/functions.php")) {
-    echo "Could not find {$_tests_dir}/includes/functions.php\n";
-    exit(1);
-}
-
-// Give access to tests_add_filter() function.
-require_once "{$_tests_dir}/includes/functions.php";
-
-/**
- * Manually load the plugin being tested.
- */
-function _manually_load_plugin()
-{
-    // Load our plugin
-    require dirname(__DIR__) . '/parsedown-party.php';
-}
-
-tests_add_filter('muplugins_loaded', '_manually_load_plugin');
-
-// Start up the WP testing environment.
-require "{$_tests_dir}/includes/bootstrap.php";
+require_once "{$tests_dir}/includes/bootstrap.php";
