@@ -26,7 +26,7 @@ if (! class_exists('\ParsedownExtra')) {
 }
 
 add_action('init', function () {
-	load_plugin_textdomain('parsedown-party', false, dirname(plugin_basename(__FILE__)) . '/languages/');
+    load_plugin_textdomain('parsedown-party', false, dirname(plugin_basename(__FILE__)) . '/languages/');
 });
 
 add_action('init', [ '\ParsedownParty\Plugin', 'init' ]);
