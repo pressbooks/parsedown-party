@@ -13,15 +13,20 @@ Requires PHP: 8.3
 Requires at least: 6.8
 Tested up to: 6.9.1
 Text Domain: parsedown-party
+Domain Path: /languages/
 */
 
-require_once( __DIR__ . '/vendor/autoload.php' );
+require_once(__DIR__ . '/vendor/autoload.php');
 
-if ( ! class_exists( '\ParsedownExtra' ) ) {
-	$title = __( 'Dependencies Missing', 'parsedown-party' );
-	$body = __( 'Please run <code>composer install</code> from the root of the Parsedown Party plugin directory.', 'parsedown-party' );
-	$message = "<h1>{$title}</h1><p>{$body}</p>";
-	wp_die( wp_kses_post( $message ), esc_html( $title ) );
+if (! class_exists('\ParsedownExtra')) {
+    $title = __('Dependencies Missing', 'parsedown-party');
+    $body = __('Please run <code>composer install</code> from the root of the Parsedown Party plugin directory.', 'parsedown-party');
+    $message = "<h1>{$title}</h1><p>{$body}</p>";
+    wp_die(wp_kses_post($message), esc_html($title));
 }
 
-add_action( 'init', [ '\ParsedownParty\Plugin', 'init' ] );
+add_action('init', function () {
+    load_plugin_textdomain('parsedown-party', false, dirname(plugin_basename(__FILE__)) . '/languages/');
+});
+
+add_action('init', [ '\ParsedownParty\Plugin', 'init' ]);

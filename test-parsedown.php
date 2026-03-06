@@ -1,10 +1,10 @@
 <?php
 /**
  * Standalone Parsedown Test Script
- * 
+ *
  * Run this directly from command line:
  *   php test-parsedown.php
- * 
+ *
  * Or access it via browser:
  *   http://localhost/parsedown-party/test-parsedown.php
  */
@@ -15,7 +15,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 $markdown = file_get_contents(__DIR__ . '/test-sample.md');
 
 // Initialize Parsedown Extra
-$parsedown = new ParsedownExtra();
+$parsedown = new ParsedownExtra;
 
 // Parse the markdown
 $html = $parsedown->text($markdown);
