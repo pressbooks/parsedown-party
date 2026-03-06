@@ -4,11 +4,11 @@ namespace ParsedownParty;
 
 class Plugin
 {
-    const METAKEY = 'kizu514_use_markdown';
+    public const METAKEY = 'kizu514_use_markdown';
 
-    const NONCE = '_kizu514_parsedown_party';
+    public const NONCE = '_kizu514_parsedown_party';
 
-    const CONVERTER_OPTIONS = [
+    public const CONVERTER_OPTIONS = [
         'header_style' => 'atx',
     ];
 
@@ -40,7 +40,7 @@ class Plugin
     public static function init()
     {
         if (is_null(self::$instance)) {
-            $extra = new \ParsedownExtra();
+            $extra = new \ParsedownExtra;
             $converter = new \League\HTMLToMarkdown\HtmlConverter(self::CONVERTER_OPTIONS);
             self::$instance = new self($extra, $converter);
             self::hooks(self::$instance);
