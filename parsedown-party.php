@@ -8,7 +8,9 @@ Author: Pressbooks (Book Oven Inc.)
 Author URI: https://pressbooks.org/
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
+<!-- x-release-please-start-version -->
 Version: 1.2.2
+<!-- x-release-please-end -->
 Requires PHP: 8.3
 Requires at least: 6.8
 Tested up to: 6.9.1
