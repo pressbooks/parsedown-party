@@ -18,13 +18,15 @@ Text Domain: parsedown-party
 Domain Path: /languages/
 */
 
-require_once(__DIR__ . '/vendor/autoload.php');
-
-if (! class_exists('\ParsedownExtra')) {
-    $title = __('Dependencies Missing', 'parsedown-party');
-    $body = __('Please run <code>composer install</code> from the root of the Parsedown Party plugin directory.', 'parsedown-party');
-    $message = "<h1>{$title}</h1><p>{$body}</p>";
-    wp_die(wp_kses_post($message), esc_html($title));
+if (file_exists($autoloader = __DIR__.'/vendor/autoload.php')) {
+    require_once $autoloader;
+} else {
+    if (! class_exists('\ParsedownExtra')) {
+        $title = __('Dependencies Missing', 'parsedown-party');
+        $body = __('Please run <code>composer install</code> from the root of the Parsedown Party plugin directory.', 'parsedown-party');
+        $message = "<h1>{$title}</h1><p>{$body}</p>";
+        wp_die(wp_kses_post($message), esc_html($title));
+    }
 }
 
 add_action('init', function () {
