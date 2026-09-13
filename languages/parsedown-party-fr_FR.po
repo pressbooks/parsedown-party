@@ -5,52 +5,52 @@ msgstr ""
 "Project-Id-Version: pressbooks-open-source\n"
 "Report-Msgid-Bugs-To: https://github.com/pressbooks/parsedown-party/issues\n"
 "Last-Translator: \n"
-"Language-Team: English, United States\n"
+"Language-Team: French\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-02-20T20:14:34+00:00\n"
-"PO-Revision-Date: 2026-05-13 00:29\n"
+"PO-Revision-Date: 2026-09-04 00:11\n"
 "X-Generator: WP-CLI 2.13.0-alpha\n"
 "X-Domain: parsedown-party\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Crowdin-Project: pressbooks-open-source\n"
 "X-Crowdin-Project-ID: 866076\n"
-"X-Crowdin-Language: en-US\n"
+"X-Crowdin-Language: fr\n"
 "X-Crowdin-File: /parsedown-party/languages/parsedown-party.pot\n"
 "X-Crowdin-File-ID: 134\n"
-"Language: en_US\n"
+"Language: fr_FR\n"
 
 #. Plugin Name of the plugin
 #: parsedown-party.php
 msgid "Parsedown Party"
-msgstr ""
+msgstr "Parsedown Party"
 
 #. Plugin URI of the plugin
 #: parsedown-party.php
 msgid "https://github.com/pressbooks/parsedown-party/"
-msgstr ""
+msgstr "https://github.com/pressbooks/parsedown-party/"
 
 #. Description of the plugin
 #: parsedown-party.php
 msgid "Markdown editing for WordPress."
-msgstr ""
+msgstr "Édition de Markdown pour WordPress."
 
 #. Author of the plugin
 #: parsedown-party.php
 msgid "Pressbooks (Book Oven Inc.)"
-msgstr ""
+msgstr "Pressbooks (Book Oven Inc.)"
 
 #. Author URI of the plugin
 #: parsedown-party.php
 msgid "https://pressbooks.org/"
-msgstr ""
+msgstr "https://pressbooks.org/"
 
 #: parsedown-party.php:23
 msgid "Dependencies Missing"
-msgstr ""
+msgstr "Dépendances manquantes"
 
 #: parsedown-party.php:24
 msgid "Please run <code>composer install</code> from the root of the Parsedown Party plugin directory."
-msgstr ""
+msgstr "Veuillez exécuter <code>composer install</code> à partir de la racine du répertoire du plugin Parsedown Party."
 
